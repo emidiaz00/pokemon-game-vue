@@ -29,7 +29,8 @@ export default {
 img {
   height: 200px;
   position: absolute;
-  right: 45%;
+  width: 100vw;
+  margin-left: -50vw;
   user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -60,13 +61,6 @@ li:hover {
 .options-container {
   display: flex;
   justify-content: center;
-}
-
-
-@media screen and (max-width: 500px) {
-  img {
-    right: 25%;
-  }
 }
 
 </style>
