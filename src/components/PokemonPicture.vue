@@ -1,11 +1,12 @@
 <template>
   <div class="pokemon-container">
+
     <img 
     class="hidden-pokemon"
     :src="imgSrc" 
     alt="pokemon" >
    
-    <img v-if="showPokemon"
+    <img v-if="mostrarPokemon"
     :src="imgSrc" 
     class="fade-in" 
     alt="pokemon" >
@@ -20,7 +21,7 @@ export default {
       type: Number,
       required: true
     },
-    showPokemon: {
+    mostrarPokemon: {
       type: Boolean,
       required: true,
       default: false
