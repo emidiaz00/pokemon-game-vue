@@ -5,6 +5,7 @@
 <script>
 import PokemonPage from './pages/PokemonPage'
 
+
 export default {
   name: 'App',
   components: {
@@ -19,7 +20,9 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #fff;
+  margin-top: 150px;
+  margin: 0 auto;
+  padding: 50px;
 }
 </style>
