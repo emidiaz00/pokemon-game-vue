@@ -46,15 +46,12 @@ export default {
   methods: {
     async mixPokemonArray() {
       this.pokemonArr = await getPokemonOptions()
-      
       const randomInt = Math.floor(Math.random() * 4)
       this.pokemon = this.pokemonArr[randomInt] 
-      
     },
     checkAnswer(selectedId) {
       this.showAnswer = true
       this.showPokemon = true
-      
       if (selectedId === this.pokemon.id && this.attemps > 0) {
         this.message = `'Correcto, ${this.pokemon.name}'`
       } else {
@@ -75,10 +72,8 @@ export default {
       this.message = ''
       this.attemps = 3,
       this.attemptsMessage = ''
-      this.cantKeep = false,
       this.mixPokemonArray()
     }
-    
   },
   mounted() {
     this.mixPokemonArray()
