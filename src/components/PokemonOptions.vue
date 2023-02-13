@@ -18,12 +18,6 @@ export default {
       required: true
     }
   },
-  methods: {
-    hola() {
-      //this.$emit()
-    }
-  },
-  
 }
 </script>
 
@@ -33,21 +27,24 @@ ul {
   list-style-type: none;
 }
 li {
-  background-color: white;
+  background-color: #5B8FB9;
   border-radius: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
   cursor: pointer;
   margin-bottom: 10px;
   width: 250px;
+  font-weight: bold;
 }
 
 li:hover {
-  background-color: rgba(0, 0, 0, 0.05);
+  background-color: rgba(86, 174, 233, 0.918);
 }
 
 .options-container {
   display: flex;
   justify-content: center;
+  padding: 30px;
+  margin: 0 auto;
+  align-content: center;
 }
 
 </style>

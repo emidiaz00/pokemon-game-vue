@@ -11,12 +11,14 @@
     
     <PokemonOptions 
     :pokemons="pokemonArr" 
-    @selectPokemon="checkAnswer"  />
+    @selectPokemon="checkAnswer"
+    />
     
     <template v-if="showAnswer">
-      <h2 class="fade-in" :style="changeColor">{{ message }}</h2>
+      <h2 class="fade-in">{{ message }}</h2>
+      <h2 style="font-weight: bold; color:red">{{ attemptsMessage }}</h2>
     </template>
-    <button @click="newGame">Nuevo juego</button>
+    <button class="btn btn-primary" @click="newGame">Nuevo juego</button>
   </div>
   
   
@@ -37,25 +39,29 @@ export default {
       showPokemon: false,
       showAnswer: false,
       message: '',
+      attemps: 3,
+      attemptsMessage: '',
     }
   },
   methods: {
     async mixPokemonArray() {
       this.pokemonArr = await getPokemonOptions()
-      
       const randomInt = Math.floor(Math.random() * 4)
       this.pokemon = this.pokemonArr[randomInt] 
-      
     },
     checkAnswer(selectedId) {
       this.showAnswer = true
       this.showPokemon = true
-      
-      if (selectedId === this.pokemon.id) {
+      if (selectedId === this.pokemon.id && this.attemps > 0) {
         this.message = `'Correcto, ${this.pokemon.name}'`
       } else {
-        this.changeColor
-        this.message = `'Incorrecto la opción correcta era: ${this.pokemon.name}'`
+        this.message = `Incorrecto la opción correcta era: ${this.pokemon.name}`
+        this.attemps--
+        if (this.attemps === 1) {
+          this.attemptsMessage = "Te queda 1 vida"
+        } if (this.attemps === 0) {
+          this.attemptsMessage = "Perdiste"
+        }
       }
     },
     newGame() {
@@ -64,9 +70,10 @@ export default {
       this.showPokemon = false,
       this.showAnswer = false,
       this.message = ''
+      this.attemps = 3,
+      this.attemptsMessage = ''
       this.mixPokemonArray()
     }
-    
   },
   mounted() {
     this.mixPokemonArray()
