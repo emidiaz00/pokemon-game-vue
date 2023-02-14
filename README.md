@@ -22,3 +22,13 @@ npm run test:unit
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+### UI
+
+image.png
+image.png
+
+
+### Production
+
+https://pokemon7-game-vue.netlify.app/

@@ -55,13 +55,15 @@ export default {
       if (selectedId === this.pokemon.id && this.attemps > 0) {
         this.message = `'Correcto, ${this.pokemon.name}'`
       } else {
-        this.message = `Incorrecto la opción correcta era: ${this.pokemon.name}`
+        this.message = `Te equivocaste`
         this.attemps--
+        
         if (this.attemps === 1) {
           this.attemptsMessage = "Te queda 1 vida"
         } if (this.attemps === 0) {
           this.attemptsMessage = "Perdiste"
         }
+        
       }
     },
     newGame() {
